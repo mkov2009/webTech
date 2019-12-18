@@ -39,3 +39,20 @@ li a:hover {
 .active {
     background-color: #4CAF50;
 }
+
+.crossroad {
+    z-index: 0;
+    position: absolute;
+    left: 50%;
+    width: 640px;
+    height: 640px;
+    margin-left: -320px;
+}
+
+.car {
+    z-index: 2;
+    position: relative;
+    width: 100px;
+    top: 332px;
+    left: 700px;
+}
