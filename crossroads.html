@@ -5,10 +5,11 @@
     <meta charset="utf-8">
     <title>Skuskove zadanie</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 </head>
 
-<body>
+<body onload="loaddata()">
     <ul class="menu">
         <li><a href="index.html">Meniny</a></li>
         <li><a class="active" href="crossroads.html">Križovatky</a></li>
@@ -16,14 +17,13 @@
     </ul>
 
     <div class="wrapper ">
-        <svg viewBox="0 0 640 640">
-            <path id = bluepath stroke="none " stroke-width="0.2 " d="M 580 276 L 340 280 L -50 640 "/>
-            <path id = greenpath stroke="none " stroke-width="0.2 " d="M 270 437 Q 510 240 -120 273 "/>
-            <path id = redpath stroke="none " stroke-width="0.2 " d="M 0 360 L 700 360"/>
+        <svg id="svg" viewBox="0 0 640 640">
+            
         </svg>
-        <img class="car " id="blue " src="http://147.175.121.202/~xkovalak/Egzamin/sprites/Cars/gifs/bluecar_left.gif">
-        <img class="car " id="green " src="http://147.175.121.202/~xkovalak/Egzamin/sprites/Cars/gifs/greencar_left.gif">
-        <img class="car " id="red " src="http://147.175.121.202/~xkovalak/Egzamin/sprites/Cars/redcar.png">
+        <images id="vehicles">
+
+        </images>
+
         <img class="crossroad" src="http://147.175.121.202/~xkovalak/Egzamin/sprites/Crossroads/cross_1.png">
     </div>
 

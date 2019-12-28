@@ -1,0 +1,28 @@
+{
+    "crossroads": [{
+        "src": "http://147.175.121.202/~xkovalak/Egzamin/sprites/Crossroads/cross_1.png",
+        "correctorder": "blue green red",
+        "explanation": "",
+        "vehicles": [{
+                "id": "blue ",
+                "src": "http://147.175.121.202/~xkovalak/Egzamin/sprites/Cars/gifs/bluecar_left.gif",
+                "path": "M 580 276 L 340 280 L -50 640 ",
+                "pathId": "bluepath"
+            },
+            {
+                "id": "green ",
+                "src": "http://147.175.121.202/~xkovalak/Egzamin/sprites/Cars/gifs/greencar_left.gif",
+                "path": "M 270 437 Q 510 240 -120 273 ",
+                "pathId": "greenpath"
+
+            },
+            {
+                "id": "red ",
+                "src": "http://147.175.121.202/~xkovalak/Egzamin/sprites/Cars/redcar.png",
+                "path": "M 0 360 L 700 360",
+                "pathId": "redpath"
+            }
+        ]
+
+    }]
+}
