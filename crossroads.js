@@ -1,124 +1,203 @@
-/*var startX = window.innerWidth / 2 - 320 - 50;
-document.getElementById('blue ').style.left = startX + 'px';*/
-
+//
+var numberOfVehiclesMemory = 0;
+var numberOfVehicles = 0;
+var numberOfCorrectOrders = 0;
 var order = [];
-var correctOrder = ["blue", "green", "red"];
-var numberOfVehicles = 3;
+var correctOrder = [
+    []
+];
 var count = 0;
+var vehicleAnimation = [];
+
+function loadPreviews() {
+    $.getJSON("crossroads_data.json", function(json) {
+        console.log(json);
+
+        for (var k = 0; k < json.crossroads.length; k++) {
+            var previewElement = document.getElementById('crossroadPreview');
+            var preview = document.createElement('img');
+            preview.id = 'preview';
+            preview.src = json.crossroads[k].srcSmall;
+            preview.setAttribute('onclick', `openModal(); currentSlide(${k+1})`);
+            previewElement.appendChild(preview);
+        }
+    });
+}
+
+function removedata() {
+
+    var pathElement = document.getElementById('svg');
+    while (pathElement.firstChild) {
+        pathElement.removeChild(pathElement.firstChild);
+    }
+    var vehicleElement = document.getElementById('vehicles');
+    while (vehicleElement.firstChild) {
+        vehicleElement.removeChild(vehicleElement.firstChild);
+    }
+
+    document.getElementById('explanation').innerText = "";
+
+}
 
 
-function loaddata() {
+function loaddata(k) {
 
     $.getJSON("crossroads_data.json", function(json) {
         console.log(json);
+        numberOfVehiclesMemory += numberOfVehicles;
+        numberOfVehicles = json.crossroads[k].vehicles.length;
+        correctOrder = json.crossroads[k].correctOrder;
+        numberOfCorrectOrders = json.crossroads[k].correctOrder.length;
+        //loading path
         var pathElement = document.getElementById('svg');
-        for (var i = 0; i < json.crossroads[0].vehicles.length; i++) {
+        for (var i = 0; i < numberOfVehicles; i++) {
             var newContent = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-            newContent.id = json.crossroads[0].vehicles[i].pathId;
-            newContent.setAttribute('d', json.crossroads[0].vehicles[i].path);
+            newContent.id = json.crossroads[k].vehicles[i].pathId;
+            newContent.setAttribute('d', json.crossroads[k].vehicles[i].path);
+            newContent.className = 'paths';
             pathElement.appendChild(newContent);
         }
+        //loading vehicles
         var vehicleElement = document.getElementById('vehicles');
-        for (var i = 0; i < json.crossroads[0].vehicles.length; i++) {
+        for (var i = 0; i < numberOfVehicles; i++) {
             var newContent = document.createElement('img');
             newContent.className = 'car ';
-            newContent.id = json.crossroads[0].vehicles[i].id;
-            newContent.src = json.crossroads[0].vehicles[i].src;
+            newContent.id = json.crossroads[k].vehicles[i].id;
+            newContent.src = json.crossroads[k].vehicles[i].src;
             vehicleElement.appendChild(newContent);
         }
+        // loading crossroad
+        var crossroadElement = document.getElementById('cross');
+        var newCrossroad = document.createElement('img');
+        newCrossroad.className = 'crossroad';
+        newCrossroad.src = json.crossroads[k].src;
+        crossroadElement.appendChild(newCrossroad);
+
+        var explanationElement = document.getElementById('explanation');
+        var newExpl = document.createElement('p');
+        newExpl.innerText = json.crossroads[k].explanation;
+        explanationElement.appendChild(newExpl);
+
         init();
     });
 }
 
 function init() {
 
-    var pathBlue = anime.path(document.getElementById('bluepath'));
-    var pathRed = anime.path(document.getElementById('redpath'));
-    var pathGreen = anime.path(document.getElementById('greenpath'));
-
-    var blueCar = anime({
-        targets: document.getElementById('blue '),
-        translateX: pathBlue('x'),
-        translateY: pathBlue('y'),
-        rotate: pathBlue('angle'),
-        easing: 'linear',
-        autoplay: false,
-        duration: 1500,
-        begin: function(anim) {
-            if (anim.began) {
-                check("blue");
-            }
-        }
-
-    });
-
-    var redCar = anime({
-        targets: document.getElementById('red '),
-        translateX: pathRed('x'),
-        translateY: pathRed('y'),
-        rotate: pathRed('angle'),
-        easing: 'linear',
-        autoplay: false,
-        duration: 1500,
-        begin: function(anim) {
-            if (anim.began) {
-                check("red");
-            }
-        }
-
-    })
-
-    var greenCar = anime({
-        targets: document.getElementById('green '),
-        translateX: pathGreen('x'),
-        translateY: pathGreen('y'),
-        rotate: pathGreen('angle'),
-        easing: 'linear',
-        autoplay: false,
-        duration: 1500,
-        begin: function(anim) {
-            if (anim.began) {
-                check("green");
-            }
-        }
-    })
-
-    //0 - blue, 1 - green, 2 - red
+    var paths = document.querySelectorAll("path");
     var cars = document.querySelectorAll(".car ");
-    cars[0].onclick = blueCar.play;
-    cars[1].onclick = greenCar.play;
-    cars[2].onclick = redCar.play;
+
+    for (var i = 0; i < numberOfVehicles; i++) {
+        var path = anime.path(paths[i]);
+        vehicleAnimation[i] = anime({
+            targets: cars[i],
+            translateX: path('x'),
+            translateY: path('y'),
+            rotate: path('angle'),
+            easing: 'linear',
+            autoplay: false,
+            duration: 1500,
+            begin: function(anim) {
+                if (anim.began) {
+                    runned(this.id);
+                }
+            }
+
+        })
+        cars[i].onclick = vehicleAnimation[i].play;
+    }
+
 }
 
 
-function check(car) {
+function runned(car) {
     count++;
     order.push(car);
+}
+
+function check() {
     if (count == numberOfVehicles) {
         if (!compare()) {
             alert("zle");
+        } else {
+            alert("správne");
         }
+        document.getElementById('explanation').style.color = 'white';
     }
 }
+
+
 
 
 function compare() {
-    for (var i = 0; i < numberOfVehicles; i++) {
-        if (order[i] != correctOrder[i]) {
-            return false;
+    var tmp = 0;
+    for (var j = 0; j < numberOfCorrectOrders; j++) {
+        for (var i = 0; i < numberOfVehicles; i++) {
+            if ((order[i] - numberOfVehiclesMemory) == correctOrder[j][i]) {
+                tmp++;
+            }
         }
+        if (tmp == numberOfVehicles) {
+            return true;
+        }
+        tmp = 0;
     }
-    return true;
+
+    return false;
 }
 
 function reset() {
-
-    blueCar.restart();
-    blueCar.pause();
-    greenCar.restart();
-    greenCar.pause();
-    redCar.restart();
-    redCar.pause();
+    for (var i = 0; i < numberOfVehicles; i++) {
+        vehicleAnimation[i].restart();
+        vehicleAnimation[i].pause();
+    }
     order = [];
     count = 0;
+    document.getElementById('explanation').style.color = 'black';
+}
+
+
+//
+// Open the Modal
+function openModal() {
+    document.getElementById("myModal").style.display = "block";
+}
+
+// Close the Modal
+function closeModal() {
+    document.getElementById("myModal").style.display = "none";
+}
+
+var slideIndex = 1;
+//showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+    showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+    showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+    removedata();
+    loaddata(n - 1);
+    reset();
+    /*var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("demo");
+    var captionText = document.getElementById("caption");
+    if (n > slides.length) { slideIndex = 1 }
+    if (n < 1) { slideIndex = slides.length }
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].className += " active";
+    captionText.innerHTML = dots[slideIndex - 1].alt;*/
 }

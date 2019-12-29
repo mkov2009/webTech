@@ -9,25 +9,35 @@
 
 </head>
 
-<body onload="loaddata()">
+<body onload="loadPreviews()">
     <ul class="menu">
         <li><a href="index.html">Meniny</a></li>
         <li><a class="active" href="crossroads.html">Križovatky</a></li>
         <li><a href="contact.html">Kontakt</a></li>
     </ul>
+    <div class="content" id="crossroadPreview">
 
-    <div class="wrapper ">
-        <svg id="svg" viewBox="0 0 640 640">
-            
-        </svg>
-        <images id="vehicles">
-
-        </images>
-
-        <img class="crossroad" src="http://147.175.121.202/~xkovalak/Egzamin/sprites/Crossroads/cross_1.png">
     </div>
+    <div id="myModal" class="modal">
+        <span class="close cursor" onclick="stop(),closeModal()">&times;</span>
+        <div class="wrapper " id="wrap">
+            <svg id="svg" viewBox="0 0 640 640">
+            
+                  </svg>
+            <images id="vehicles">
 
-    <button onclick="reset()">Reset</button>
+            </images>
+            <images id="cross">
+
+            </images>
+
+        </div>
+        <button onclick="reset()">Reset</button>
+        <button onclick="check()">Check</button>
+        <div id="explanation">
+
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js "></script>
     <script src="crossroads.js "></script>
