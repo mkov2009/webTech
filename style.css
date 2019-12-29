@@ -1,70 +1,65 @@
-* {
-    box-sizing: border-box;
-}
-
 body {
-    margin: 0;
-    font-family: 'Times New Roman', Times, serif;
+    font: 20px Montserrat, sans-serif;
+    line-height: 1.8;
+    color: #f5f6f7;
 }
 
-.menu {
-    height: 4vw;
-    font-size: 1.5vw;
+p {
+    font-size: 16px;
 }
 
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
+.margin {
+    margin-bottom: 45px;
 }
 
-li {
-    float: left;
+.bg-1 {
+    background-color: #1abc9c;
+    /* Green */
+    color: #ffffff;
 }
 
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 20px 16px;
-    text-decoration: none;
-    height: 4vw;
+.bg-2 {
+    background-color: #474e5d;
+    /* Dark Blue */
+    color: #ffffff;
 }
 
-.column {
-    float: left;
-    height: 100vh;
+.bg-3 {
+    background-color: #ffffff;
+    /* White */
+    color: #555555;
 }
 
-.left {
-    width: 75%;
+.bg-4 {
+    background-color: #454545;
+    /* Black Gray */
+    color: #fff;
 }
 
-.right {
-    width: 25%;
-    background-color: grey;
+.bg-5 {
+    background-color: #2f2f2f;
+    /* Black Gray */
+    color: #fff;
 }
 
-
-/* Clear floats after the columns */
-
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
+.container-fluid {
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
-
-/* Change the link color to #111 (black) on hover */
-
-li a:hover {
-    background-color: #111;
+.navbar {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    letter-spacing: 5px;
 }
 
-.active {
-    background-color: #4CAF50;
+.navbar-nav li a:hover {
+    color: #1abc9c !important;
+    font-size: 20px;
 }
 
 .crossroad {
@@ -74,12 +69,24 @@ li a:hover {
     width: 640px;
     height: 640px;
     margin-left: -320px;
+    margin-top: -640px;
+}
+
+.wrapper {
+    z-index: 0;
+    position: absolute;
+    left: 50%;
+    width: 640px;
+    height: 640px;
+    margin-left: -320px;
+    overflow: hidden;
 }
 
 .car {
-    z-index: 2;
+    z-index: 3;
     position: relative;
     width: 100px;
-    top: 332px;
-    left: 700px;
+    height: 50px;
+    margin-left: -50px;
+    top: -665px;
 }
