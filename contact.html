@@ -4,15 +4,144 @@
 <head>
     <meta charset="utf-8">
     <title>Skuskove zadanie</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 
 <body>
-    <ul class="menu">
-        <li><a href="index.html">Meniny</a></li>
-        <li><a href="crossroads.html">Križovatky</a></li>
-        <li><a class="active" href="contact.html">Kontakt</a></li>
-    </ul>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.html">WebSiteName</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="index.html">Meniny</a></li>
+                <li><a href="crossroads.html">Križovatky</a></li>
+                <li><a class="active" href="contact.html">Kontakt</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container-fluid bg-1 text-center">
+        <h3 class="margin">Kto sme?</h3>
+        <div class="row center">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-4">
+                <img src="http://147.175.121.202/~xkovalak/Egzamin/imgs/simon.png" class="img-responsive img-circle margin" style="display:inline" alt="SimonBabic" width="350" height="350">
+                <h3>Šimon Babic</h3>
+            </div>
+            <div class="col-sm-4">
+                <img src="http://147.175.121.202/~xkovalak/Egzamin/imgs/maros.jpg" class="img-responsive img-circle margin" style="display:inline" alt="MarosKovalak" width="350" height="350">
+                <h3>Maroš Kovaľák</h3>
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+    </div>
+
+    <div class="container-fluid bg-2 text-center">
+        <h3 class="margin">Čo sme?</h3>
+        <p>Študenti 3. ročníka Aplikovanej Informatiky na Fakulte Elektrotechniky a Informatiky Slovenskej Technickej Univerzity.</p>
+    </div>
+
+    <div class="container-fluid bg-3 text-center">
+        <h3 class="margin">Odkiaľ sme?</h3><br>
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-4">
+                <p>
+                    <strong>Meno a Priezvisko:</strong> Šimon Babic</p>
+                <p>
+                    <strong>Adresa:</strong> Záholičie 256, 02755 Krivá</p>
+                <p>
+                    <strong>Email:</strong> babic.simon.97@gmail.com</p>
+                <p>
+                    <strong>Telefón:</strong> 0918 853 619</p>
+            </div>
+            <div class="col-sm-4">
+                <p>
+                    <strong>Meno a Priezvisko:</strong> Maroš Kovaľák</p>
+                <p>
+                    <strong>Adresa:</strong> Nová 303, 02712 Vitanová</p>
+                <p>
+                    <strong>Email:</strong> kovalak.maros@gmail.com</p>
+                <p>
+                    <strong>Telefón:</strong> 0902 208 801</p>
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+    </div>
+
+    <div class="container-fluid bg-4">
+        <h3 class="margin text-center">Čo sme urobili?</h3>
+
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Úloha</th>
+                    <th scope="col">Vypracoval</th>
+                    <th scope="col">Splnené</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Návrh CSS</td>
+                    <td>Šimon</td>
+                    <td>tbd</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Responz. dizajn</td>
+                    <td> Maroš,Šimon</td>
+                    <td>tbd</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Prispôsobenie pre tlač</td>
+                    <td>Šimon</td>
+                    <td><span class="glyphicon glyphicon-remove"></span></td>
+                </tr>
+                <tr>
+                    <th scope="row">4</th>
+                    <td>Meniny</td>
+                    <td>Maroš, Šimon</td>
+                    <td><span class="glyphicon glyphicon-remove"></span></td>
+                </tr>
+                <tr>
+                    <th scope="row">5</th>
+                    <td>Počítadlo prístupov</td>
+                    <td>Maroš</td>
+                    <td><span class="glyphicon glyphicon-remove"></span></td>
+                </tr>
+                <tr>
+                    <th scope="row">6</th>
+                    <td>Favicon</td>
+                    <td>Maroš</td>
+                    <td><span class="glyphicon glyphicon-remove"></span></td>
+                </tr>
+                <tr>
+                    <th scope="row">7</th>
+                    <td>Križovatky</td>
+                    <td>Maroš, Šimon</td>
+                    <td>tbd</td>
+                </tr>
+                <tr>
+                    <th scope="row">8</th>
+                    <td>Kontakt</td>
+                    <td>Šimon</td>
+                    <td><span class="glyphicon glyphicon-ok"></span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Footer -->
+    <footer class="container-fluid bg-5 text-center">
+    </footer>
 </body>
 
 </html>

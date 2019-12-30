@@ -4,15 +4,53 @@
 <head>
     <meta charset="utf-8">
     <title>Skuskove zadanie</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
 </head>
 
-<body>
-    <ul class="menu">
-        <li><a href="index.html">Meniny</a></li>
-        <li><a class="active" href="crossroads.html">Križovatky</a></li>
-        <li><a href="contact.html">Kontakt</a></li>
-    </ul>
+<body onload="loadPreviews()">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.html">WebSiteName</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="index.html">Meniny</a></li>
+                <li><a class="active" href="crossroads.html">Križovatky</a></li>
+                <li><a href="contact.html">Kontakt</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="content" id="crossroadPreview">
+
+    </div>
+    <div id="myModal" class="modal">
+        <span class="close cursor" onclick="stop(),closeModal()">&times;</span>
+        <div class="wrapper " id="wrap">
+            <svg id="svg" viewBox="0 0 640 640">
+            
+                  </svg>
+            <images id="vehicles">
+
+            </images>
+            <images id="cross">
+
+            </images>
+
+        </div>
+        <button class="button" onclick="reset()">Reset</button>
+        <button class="button" onclick="check()">Kontrola</button>
+        <div id="explanation">
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js "></script>
+    <script src="crossroads.js "></script>
 </body>
 
 </html>
