@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <title>Skuskove zadanie</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="sprites/fav/android-icon-192x192.png" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css" />
@@ -13,6 +14,9 @@
 </head>
 
 <body onload="loadPreviews()">
+
+    <!-- Menu -->
+
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -25,29 +29,41 @@
             </ul>
         </div>
     </nav>
-    <div class="content" id="crossroadPreview">
 
-    </div>
-    <div id="myModal" class="modal">
-        <span class="close cursor" onclick="stop(),closeModal()">&times;</span>
-        <div class="wrapper " id="wrap">
-            <svg id="svg" viewBox="0 0 640 640">
+    <div class="col-sm-9 bg-1 column">
+        <div class="content" id="crossroadPreview">
+
+        </div>
+        <div id="myModal" class="modal">
+            <span class="close cursor" onclick="stop(),closeModal()">&times;</span>
+            <div class="wrapper " id="wrap">
+                <svg id="svg" viewBox="0 0 640 640">
             
                   </svg>
-            <images id="vehicles">
+                <images id="vehicles">
 
-            </images>
-            <images id="cross">
+                </images>
+                <images id="cross">
 
-            </images>
+                </images>
 
-        </div>
-        <button class="button" onclick="reset()">Reset</button>
-        <button class="button" onclick="check()">Kontrola</button>
-        <div id="explanation">
+            </div>
+            <button class="button" onclick="reset()">Reset</button>
+            <button class="button" onclick="check()">Kontrola</button>
+            <div id="explanation">
 
+            </div>
         </div>
     </div>
+
+    <div class="col-sm-3 bg-2 column">
+        <h2>Návod</h2>
+        <p>
+            <h3>"Lorem ipsum</h3> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+            aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+    </div>
+
+
 
     <script src="https://cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js "></script>
     <script src="crossroads.js "></script>

@@ -5,13 +5,18 @@
     <meta charset="utf-8">
     <title>Skuskove zadanie</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="sprites/fav/android-icon-192x192.png" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
     <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 
-<body>
+<body onload="startup()">
+
+    <!-- Menu -->
+
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -24,6 +29,61 @@
             </ul>
         </div>
     </nav>
+
+    <!-- Calendar -->
+
+    <div class="col-sm-3 bg-2 column">
+
+        <div class="form-group margin-top">
+            <label for="usr">Dátum:</label>
+            <input type="number" class="form-control" id="usrDate">
+            <button class="btn-default btn-outline-primary col-sm-6 margin-top" onclick="findDate()">Vyhľadať</button>
+            <li><a href="#" data-toggle="tooltip" data-placement="right" title="Správny dátum -> deň: 1-31 mesiac: 1-12">Nápoveda</a></li>
+        </div>
+
+        <div class="form-group margin-top">
+            <label for="usr">Meno:</label>
+            <input type="text" class="form-control" id="usrName">
+            <button class="btn-default btn-outline-primary col-sm-6 margin-top" onclick="findName()">Vyhľadať</button>
+            <li><a href="#" data-toggle="tooltip" data-placement="right" title="Povolená diaktritika, veľké/malé písmená. Nepovolené číslice a iné znaky">Nápoveda</a></li>
+        </div>
+    </div>
+
+    <div class="col-sm-6 bg-3">
+        <h3>
+            <i class='far fa-calendar-alt'></i> Kalendár
+        </h3>
+        <div class="card table-responsive">
+            <h3 class="card-header" id="monthAndYear">Mesiac a rok</h3>
+            <table class="table table-bordered table-responsive" id="calendar">
+                <thead>
+                    <tr>
+                        <th>Pondelok</th>
+                        <th>Utorok</th>
+                        <th>Streda</th>
+                        <th>Štvrtok</th>
+                        <th>Piatok</th>
+                        <th>Sobota</th>
+                        <th>Nedeľa</th>
+                    </tr>
+                </thead>
+                <tbody id="calendar-body"></tbody>
+            </table>
+
+            <div class="form inline">
+                <button class="btn-default btn-outline-primary col-sm-6" onclick="prev()">Predošlý</button>
+                <button class="btn-default btn-outline-primary col-sm-6" onclick="next()">Ďalší</button>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="col-sm-3 bg-2 column"></div>
+
+
+
+
+    <script src="calendar.js"></script>
 </body>
 
 </html>
