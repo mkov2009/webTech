@@ -44,29 +44,54 @@ function showCalendar(inDay, month, year) {
 
     let date = 1;
 
+
+    let request = new XMLHttpRequest();
+    request.open("GET", "meniny.xml", false);
+    request.send();
+    let xml = request.responseXML;
+    let entryDate = xml.getElementsByTagName("den");
+    let entryName = xml.getElementsByTagName("SKd");
+    let firstNameIndex;
+
+    for (let i = 0; i < entryDate.length; i++) {
+        let mystring = entryDate[i].childNodes[0].nodeValue;
+        if ((month + 1) == mystring.substring(0, 2)) {
+            firstNameIndex = i;
+            break;
+        }
+    }
+
     for (let i = 0; i < 6; i++) {
         let row = document.createElement('tr');
 
         for (let j = 0; j < 7; j++) {
+
             if (i === 0 && j < firstDay) {
                 let cell = document.createElement('td');
                 let cellText = document.createTextNode("");
                 cell.appendChild(cellText);
                 row.appendChild(cell);
+
             } else if (date > daysInMonth) {
                 break;
+
             } else {
                 let cell = document.createElement("td");
-                let cellText = document.createTextNode(date);
+                let cellText;
+
+                cellText = document.createTextNode(date + "\n" + entryName[firstNameIndex].childNodes[0].nodeValue);
+
                 if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
-                    cell.style.backgroundColor = "#17f5c8";
+                    cell.style.backgroundColor = "rgba(174, 246, 152, 0.52)";
                 }
                 if (date == inDay) {
-                    cell.style.backgroundColor = "#b3d9ff";
+                    cell.style.backgroundColor = "rgba(152, 224, 246, 0.52)";
                 }
                 cell.appendChild(cellText);
                 row.appendChild(cell);
-                date++
+                date++;
+                firstNameIndex++;
+
             }
 
         }
@@ -88,12 +113,31 @@ function next() {
 }
 
 function findDate() {
-    let inputDate = document.getElementById("usrDate").value;
+    let inputDate = document.getElementById("userDate").value;
     inputDate = inputDate.split('.'), inDay = inputDate[0], currentMonth = inputDate[1] - 1;
 
     showCalendar(inDay, currentMonth, currentYear);
 }
 
 function findName() {
+    let inputName = document.getElementById("userName").value;
+    inputName = inputName.toLowerCase(inputName);
 
+    let request = new XMLHttpRequest();
+    request.open("GET", "meniny.xml", false);
+    request.send();
+    let xml = request.responseXML;
+    let entryDate = xml.getElementsByTagName("den");
+    let entryName = xml.getElementsByTagName("SKd");
+
+    for (let i = 0; i < entryName.length; i++) {
+        let names = entryName[i].childNodes[0].nodeValue;
+        names = names.toLocaleLowerCase();
+        if (names.includes(inputName)) {
+            currentMonth = entryDate[i].childNodes[0].nodeValue.substring(0, 2) - 1;
+            inDay = entryDate[i].childNodes[0].nodeValue.substring(4, 2);
+
+            showCalendar(inDay, currentMonth, currentYear);
+        }
+    }
 }

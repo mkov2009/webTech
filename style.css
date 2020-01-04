@@ -7,8 +7,17 @@ body {
     color: #c1c1c1;
 }
 
+.counter {
+    padding-top: 10px;
+    float: right;
+}
+
 p {
     font-size: 16px;
+}
+
+.tooltip {
+    padding: 10px 20px;
 }
 
 .column {
@@ -21,14 +30,19 @@ p {
     margin-bottom: 45px;
 }
 
+.bg-nav {
+    background-color: rgb(39, 38, 37);
+    color: white;
+}
+
 .bg-1 {
-    background-color: #7bc1d1;
+    background-color: rgb(161, 146, 109);
     /* Green */
     color: #ffffff;
 }
 
 .bg-2 {
-    background-color: #757f94;
+    background-color: #49433a;
     /* Dark Blue */
     color: #ffffff;
 }
@@ -40,7 +54,7 @@ p {
 }
 
 .bg-4 {
-    background-color: #454545;
+    background-color: #383129bc;
     /* Black Gray */
     color: #fff;
 }
@@ -62,12 +76,17 @@ p {
     border: 0;
     border-radius: 0;
     margin-bottom: 0;
-    font-size: 12px;
+    font-size: 14px;
     letter-spacing: 5px;
 }
 
+.active {
+    color: rgb(155, 117, 69) !important;
+    font-size: 16px;
+}
+
 .navbar-nav li a:hover {
-    color: #1abc9c !important;
+    color: #b3b07a !important;
     font-size: 20px;
 }
 
@@ -113,10 +132,6 @@ p {
 
 /* lightbox */
 
-.content {
-    margin-left: 30%;
-}
-
 #preview {
     transition: 1s;
     padding: 15px;
@@ -133,9 +148,9 @@ p {
     left: 0;
     top: 0;
     width: 100%;
-    height: 95%;
+    height: 100%;
     overflow: auto;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.746);
 }
 
 .modal-content {
@@ -175,7 +190,15 @@ p {
 }
 
 #explanation {
-    color: black;
+    display: block;
+}
+
+#hint h3 {
+    color: rgb(190, 153, 118);
+}
+
+#hint {
+    font-size: 17px;
 }
 
 
@@ -188,4 +211,12 @@ p {
 
 .margin-top {
     margin-top: 10px;
+}
+
+.margin-top2 {
+    margin-top: 50px;
+}
+
+.margin-bottom {
+    margin-bottom: 20px;
 }

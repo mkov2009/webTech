@@ -1,6 +1,11 @@
 //
 document.getElementById('explanation').style.width = (window.innerWidth / 2) - 330 + 'px';
 
+//popup
+
+
+
+
 var numberOfVehiclesMemory = 0;
 var numberOfVehicles = 0;
 var numberOfCorrectOrders = 0;
@@ -18,6 +23,7 @@ function loadPreviews() {
         for (var k = 0; k < json.crossroads.length; k++) {
             var previewElement = document.getElementById('crossroadPreview');
             var preview = document.createElement('img');
+            //preview.className = 'img-thumbnail';
             preview.id = 'preview';
             preview.src = json.crossroads[k].srcSmall;
             preview.setAttribute('onclick', `openModal(); currentSlide(${k+1})`);
@@ -76,6 +82,10 @@ function loaddata(k) {
         crossroadElement.appendChild(newCrossroad);
 
         var explanationElement = document.getElementById('explanation');
+        var newHeadline = document.createElement('h3');
+        newHeadline.innerText = "";
+        newHeadline.id = 'expHeadline';
+        explanationElement.appendChild(newHeadline);
         var newExpl = document.createElement('p');
         newExpl.innerText = json.crossroads[k].explanation;
         explanationElement.appendChild(newExpl);
@@ -120,11 +130,22 @@ function runned(car) {
 function check() {
     if (count == numberOfVehicles) {
         if (!compare()) {
-            alert("zle");
+            explHeadline(false);
         } else {
-            alert("správne");
+            explHeadline(true);
         }
-        document.getElementById('explanation').style.color = 'white';
+        document.getElementById('explanation').style.display = 'block';
+    }
+}
+
+function explHeadline(bool) {
+    var headline = document.getElementById('expHeadline');
+    if (bool) {
+        headline.style.color = 'green';
+        headline.innerText = 'Správne';
+    } else {
+        headline.style.color = 'red';
+        headline.innerText = 'Neprávne';
     }
 }
 
@@ -156,6 +177,7 @@ function reset() {
     order = [];
     count = 0;
     document.getElementById('explanation').style.color = 'black';
+    document.getElementById('expHeadline').style.color = 'black';
 }
 
 
