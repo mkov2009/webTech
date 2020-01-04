@@ -114,15 +114,15 @@ p {
 /* lightbox */
 
 .content {
-    margin-left: 30%;
+    margin-left: 5%;
 }
 
 #preview {
     transition: 1s;
     padding: 15px;
     object-fit: cover;
-    width: 15vw;
-    height: 15vw;
+    width: 12vw;
+    height: 12vw;
 }
 
 .modal {
