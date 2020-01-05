@@ -91,7 +91,9 @@
             "correctOrder": [
                 [1, 0, 2]
             ],
+
             "explanation": "1. Zelené auto má prednosť pred modrým, pretože pokračuje po hlavnej ceste. 2. Modré auto má prednosť pred červeným, pretože vychádza z hlavnej cesty. 3. Červené auto, pretože dáva prednosť v jazde.",
+
             "vehicles": [{
                     "id": "blue ",
                     "src": "http://147.175.121.202/~xkovalak/Egzamin/sprites/Cars/gifs/bluecar_left.gif",
@@ -120,7 +122,9 @@
                 [1, 0, 3, 2],
                 [0, 1, 3, 2]
             ],
+
             "explanation": "1. Električky súčasne majú, pretože majú prednosť pred autami. 2. Červené auto, pretože pokračuje po hlavnej ceste. 3. Zelené auto, pretože vychádza z hlavnej cesty.",
+
             "vehicles": [{
                     "id": "tram ",
                     "src": "http://147.175.121.202/~xkovalak/Egzamin/sprites/Cars/bluetram.png",
@@ -154,7 +158,9 @@
             "correctOrder": [
                 [1, 0]
             ],
+
             "explanation": "1. Chodci na prechode majú prednosť. 2. Zelené auto dáva prednosť, pretože na prechode pre chodcov svieti zelená.",
+
             "vehicles": [{
                     "id": "green ",
                     "src": "http://147.175.121.202/~xkovalak/Egzamin/sprites/Cars/greencar.png",
@@ -176,7 +182,9 @@
             "correctOrder": [
                 [1, 0]
             ],
+
             "explanation": "1. Červené auto, pretože na neoznačenej ceste má prednosť z prava. 2. Modré auto, pretože dáva prednosť z prava.",
+
             "vehicles": [{
                     "id": "blue ",
                     "src": "http://147.175.121.202/~xkovalak/Egzamin/sprites/Cars/bluecar.png",
@@ -201,7 +209,9 @@
                 [3, 2, 1, 0],
                 [3, 2, 0, 1]
             ],
+
             "explanation": "1. Chodci a cyklisti majú prednosť, pretože sú na prechode. 2. Červené auto zároveň s bielym.",
+
             "vehicles": [{
                     "id": "redcar ",
                     "src": "http://147.175.121.202/~xkovalak/Egzamin/sprites/Cars/redcar.png",
@@ -240,7 +250,9 @@
                 [3, 1, 2, 0],
                 [3, 1, 0, 2]
             ],
+
             "explanation": "1. Elekričky súčasne, pretože majú prednosť. 2. Červené auto zároveňs modrým, pretože dávajú prednosť.",
+
             "vehicles": [{
                     "id": "blue ",
                     "src": "http://147.175.121.202/~xkovalak/Egzamin/sprites/Cars/bluecar.png",
@@ -273,7 +285,10 @@
             "src": "http://147.175.121.202/~xkovalak/Egzamin/sprites/Crossroads/cross_9.png",
             "srcSmall": "http://147.175.121.202/~xkovalak/Egzamin/sprites/Crossroads/cross_9.png",
             "correctOrder": [
-                [2, 1, 0]
+
+                [2, 1, 0],
+                [0, 1, 2]
+
             ],
             "explanation": "Vozidlo na hlavnej ceste má prednosť.",
             "vehicles": [{
@@ -301,10 +316,12 @@
             "src": "http://147.175.121.202/~xkovalak/Egzamin/sprites/Crossroads/cross_9.png",
             "srcSmall": "http://147.175.121.202/~xkovalak/Egzamin/sprites/Crossroads/cross_9.png",
             "correctOrder": [
+
                 [0, 1],
                 [1, 0]
             ],
             "explanation": "1. Žlté auto zároveň s bielym, pretože sú na neoznačenej križovatke a pri odbočovaní sa neobmedzujú.",
+
             "vehicles": [{
                     "id": "white ",
                     "src": "http://147.175.121.202/~xkovalak/Egzamin/sprites/Cars/gifs/whitecar_left.gif",
@@ -327,7 +344,9 @@
                 [0, 3, 1, 2],
                 [0, 3, 2, 1]
             ],
+
             "explanation": "1. Modré auto, pretože pokračuje po hlavnej ceste. 2. Žlté auto, pretože vychádza z hlavnej cesty. 3. Červené auto so zeleným súčasne.",
+
             "vehicles": [{
                     "id": "blue ",
                     "src": "http://147.175.121.202/~xkovalak/Egzamin/sprites/Cars/bluecar.png",
@@ -359,10 +378,12 @@
             "src": "http://147.175.121.202/~xkovalak/Egzamin/sprites/Crossroads/cross_10.png",
             "srcSmall": "http://147.175.121.202/~xkovalak/Egzamin/sprites/Crossroads/cross_10.png",
             "correctOrder": [
+
                 [1, 0, 2],
                 [0, 1, 2]
             ],
             "explanation": "1. Žlté auto súčastne s bielym, pretože sú na hlavnej ceste. 2. Červené auto, pretože má prednosť.",
+
             "vehicles": [{
                     "id": "white ",
                     "src": "http://147.175.121.202/~xkovalak/Egzamin/sprites/Cars/whitecar.png",
@@ -390,7 +411,9 @@
             "correctOrder": [
                 [1, 0]
             ],
+
             "explanation": "Zelené auto pretože pokračuje po hlavnej ceste. 2. Modré auto, pretože dáva prednosť.",
+
             "vehicles": [{
                     "id": "blue ",
                     "src": "http://147.175.121.202/~xkovalak/Egzamin/sprites/Cars/bluecar.png",
@@ -419,7 +442,9 @@
                 [0, 2, 3, 1, 5, 4],
                 [2, 0, 3, 1, 5, 4]
             ],
+
             "explanation": "1. Červené auto zároveň s modrým, pretože majú prednosť. 2. Zelené auto zároveň so žltým, pretože električkám svieti stop. 3. Električky súčastne",
+
             "vehicles": [{
                     "id": "blue ",
                     "src": "http://147.175.121.202/~xkovalak/Egzamin/sprites/Cars/bluecar.png",

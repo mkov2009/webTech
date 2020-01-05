@@ -1,11 +1,3 @@
-//
-document.getElementById('explanation').style.width = (window.innerWidth / 2) - 330 + 'px';
-
-//popup
-
-
-
-
 var numberOfVehiclesMemory = 0;
 var numberOfVehicles = 0;
 var numberOfCorrectOrders = 0;
@@ -15,6 +7,7 @@ var correctOrder = [
 ];
 var count = 0;
 var vehicleAnimation = [];
+var p = 0;
 
 function loadPreviews() {
     $.getJSON("crossroads_data.json", function(json) {
@@ -23,7 +16,6 @@ function loadPreviews() {
         for (var k = 0; k < json.crossroads.length; k++) {
             var previewElement = document.getElementById('crossroadPreview');
             var preview = document.createElement('img');
-            //preview.className = 'img-thumbnail';
             preview.id = 'preview';
             preview.src = json.crossroads[k].srcSmall;
             preview.setAttribute('onclick', `openModal(); currentSlide(${k+1})`);
@@ -145,10 +137,23 @@ function explHeadline(bool) {
         headline.innerText = 'Správne';
     } else {
         headline.style.color = 'red';
-        headline.innerText = 'Neprávne';
+        headline.innerText = 'Nesprávne';
     }
 }
 
+
+
+function demo() {
+    setTimeout(function() {
+        vehicleAnimation[correctOrder[0][p]].play();
+        p++;
+        if (p < numberOfVehicles) {
+            demo();
+        } else {
+            document.getElementById('explanation').style.color = 'white';
+        }
+    }, 1000)
+}
 
 
 
@@ -170,6 +175,7 @@ function compare() {
 }
 
 function reset() {
+    p = 0;
     for (var i = 0; i < numberOfVehicles; i++) {
         vehicleAnimation[i].restart();
         vehicleAnimation[i].pause();
