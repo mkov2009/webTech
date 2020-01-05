@@ -17,22 +17,22 @@
 
     <!-- Menu -->
 
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default bg-nav">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="index.html">WebSiteName</a>
+                <a class="navbar-brand" href="index.html">WebMeniny</a>
             </div>
             <ul class="nav navbar-nav">
                 <li><a href="index.html">Meniny</a></li>
                 <li><a class="active" href="crossroads.html">Križovatky</a></li>
                 <li><a href="contact.html">Kontakt</a></li>
             </ul>
-
+            <a href="https://www.freecounterstat.com" class="counter" title="hit counter"><img src="https://counter7.wheredoyoucomefrom.ovh/private/freecounterstat.php?c=wlnpqws6y51nubtzwx46um9zfjbx44k4" border="0" title="hit counter" alt="hit counter"></a>
         </div>
     </nav>
 
-    <div class="col-sm-9 bg-1 column">
-        <div class="content" id="crossroadPreview">
+    <div class="col-sm-10 bg-1 column">
+        <div class="text-center" id="crossroadPreview">
 
         </div>
         <div id="myModal" class="modal">
@@ -41,16 +41,20 @@
                 <svg id="svg" viewBox="0 0 640 640">
             
                   </svg>
-                <images id="vehicles">
+                <aside id="vehicles">
 
-                </images>
-                <images id="cross">
+                </aside>
 
-                </images>
+                <aside id="cross">
+
+                </aside>
 
             </div>
-            <button class="button" onclick="reset()">Reset</button>
-            <button class="button" onclick="check()">Kontrola</button>
+            <div class="buttonGroup">
+                <button class="button" onclick="reset()">Reset</button>
+                <button class="button" onclick="check()">Kontrola</button>
+                <button class="button" onclick="demo()">Demo</button>
+            </div>
             <div id="explanation">
 
             </div>
@@ -59,16 +63,18 @@
         </div>
     </div>
 
-    <div class="col-sm-3 bg-2 column">
-        <h2>Návod</h2>
+    <div class="col-sm-2 bg-2 column" id="hint">
         <p>
             Po kliknutí na náčrt križovatky sa daná križovatka otvorí aj s dopravnými prostriedkami. <br> Úlohou je správne poklikať na všetkých účastníkov cestnej premávky vrátane chodcov v poradí v akom maju prejsť cez danú križovatku. <br> V ľavej
-            časti sa zobrazia dve tlačidlá:
+            časti sa zobrazia tri tlačidlá:
             <h3>Reset</h3>
             Slúži na resetovanie križovatky v prípade pomýlenia. <br>
             <h3>Kontrola</h3>
             Slúži na skontrolovanie už vyriešenej križovatky. Nefunguje ak nebolo kliknuté na všetkých účastníkov cestnej premávky. <br> <br> V prípade, že môžu ísť viacerí účastníci naraz, je možné kliknúť na nich v ľubovoľnom poradí.
-
+            <h3>Demo</h3>
+            Slúži na zobrazenie správnej sekvencie.<br>
+            <h3>Kontrola</h3>
+            Slúži na skontrolovanie už vyriešenej križovatky. Nefunguje ak nebolo kliknuté na všetkých účastníkov cestnej premávky. <br> <br> V prípade, že môžu ísť viacerí účastníci naraz, je možné na nich kliknúť v ľubovoľnom poradí.
         </p>
     </div>
 

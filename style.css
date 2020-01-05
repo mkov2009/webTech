@@ -7,8 +7,17 @@ body {
     color: #c1c1c1;
 }
 
+.counter {
+    padding-top: 10px;
+    float: right;
+}
+
 p {
     font-size: 16px;
+}
+
+.tooltip {
+    padding: 10px 20px;
 }
 
 .column {
@@ -21,14 +30,19 @@ p {
     margin-bottom: 45px;
 }
 
+.bg-nav {
+    background-color: rgb(39, 38, 37);
+    color: white;
+}
+
 .bg-1 {
-    background-color: #7bc1d1;
+    background-color: rgb(161, 146, 109);
     /* Green */
     color: #ffffff;
 }
 
 .bg-2 {
-    background-color: #757f94;
+    background-color: #49433a;
     /* Dark Blue */
     color: #ffffff;
 }
@@ -40,7 +54,7 @@ p {
 }
 
 .bg-4 {
-    background-color: #454545;
+    background-color: #383129bc;
     /* Black Gray */
     color: #fff;
 }
@@ -62,12 +76,17 @@ p {
     border: 0;
     border-radius: 0;
     margin-bottom: 0;
-    font-size: 12px;
+    font-size: 14px;
     letter-spacing: 5px;
 }
 
+.active {
+    color: rgb(155, 117, 69) !important;
+    font-size: 16px;
+}
+
 .navbar-nav li a:hover {
-    color: #1abc9c !important;
+    color: #b3b07a !important;
     font-size: 20px;
 }
 
@@ -78,7 +97,7 @@ p {
     width: 640px;
     height: 640px;
     margin-left: -320px;
-    margin-top: -640px;
+    margin-top: -690px;
 }
 
 .wrapper {
@@ -113,16 +132,12 @@ p {
 
 /* lightbox */
 
-.content {
-    margin-left: 5%;
-}
-
 #preview {
     transition: 1s;
     padding: 15px;
     object-fit: cover;
-    width: 12vw;
-    height: 12vw;
+    width: 15vw;
+    height: 15vw;
 }
 
 .modal {
@@ -133,7 +148,7 @@ p {
     left: 0;
     top: 0;
     width: 100%;
-    height: 95%;
+    height: 100%;
     overflow: auto;
     background-color: black;
 }
@@ -178,8 +193,36 @@ p {
     color: black;
 }
 
+.buttonGroup {
+    margin-left: 36%;
+    margin-top: 680px;
+}
+
+.buttonGroup button {
+    width: 15%;
+}
+
+#explanation {
+    text-align: center;
+}
+
+#hint h3 {
+    color: rgb(190, 153, 118);
+}
+
+#hint {
+    font-size: 17px;
+}
+
 
 /* CALENDAR */
+
+.hint-btn {
+    padding: 8px 15px;
+    margin: 10px 15px;
+    font-size: 16px;
+    background-color: rgb(155, 117, 69);
+}
 
 #calendar-body td {
     height: 100px;
@@ -188,4 +231,12 @@ p {
 
 .margin-top {
     margin-top: 10px;
+}
+
+.margin-top2 {
+    margin-top: 50px;
+}
+
+.margin-bottom {
+    margin-bottom: 20px;
 }
