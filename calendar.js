@@ -119,9 +119,27 @@ function findDate() {
     showCalendar(inDay, currentMonth, currentYear);
 }
 
+/* https://www.pcforum.sk/odstranenie-diakritiky-vt25925.html?fbclid=IwAR0nAfNg7USfmqNnJE73JrW0elnfErcIfTQIrAUx6Je5Jc0purGCVL0P8xk */
+
+var dia = "áäčďéíľĺňóôŕšťúýÁČĎÉÍĽĹŇÓŠŤÚÝŽ";
+var nodia = "aacdeillnoorstuyACDEILLNOSTUYZ";
+
+function diaConvert(text) {
+    var convertText = "";
+    for (i = 0; i < text.length; i++) {
+        if (dia.indexOf(text.charAt(i)) != -1) {
+            convertText += nodia.charAt(dia.indexOf(text.charAt(i)));
+        } else {
+            convertText += text.charAt(i);
+        }
+    }
+    return convertText;
+}
+/* ------------------------------------------------------------------------------------------------------------------------------ */
 function findName() {
     let inputName = document.getElementById("userName").value;
     inputName = inputName.toLowerCase(inputName);
+    inputName = diaConvert(inputName);
 
     let request = new XMLHttpRequest();
     request.open("GET", "meniny.xml", false);
@@ -133,6 +151,7 @@ function findName() {
     for (let i = 0; i < entryName.length; i++) {
         let names = entryName[i].childNodes[0].nodeValue;
         names = names.toLocaleLowerCase();
+        names = diaConvert(names);
         if (names.includes(inputName)) {
             currentMonth = entryDate[i].childNodes[0].nodeValue.substring(0, 2) - 1;
             inDay = entryDate[i].childNodes[0].nodeValue.substring(4, 2);

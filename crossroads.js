@@ -134,7 +134,7 @@ function check() {
         } else {
             explHeadline(true);
         }
-        document.getElementById('explanation').style.display = 'block';
+        document.getElementById('explanation').style.color = 'white';
     }
 }
 

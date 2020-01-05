@@ -210,9 +210,13 @@ p {
 
 .hint-btn {
     padding: 8px 15px;
-    margin: 10px 15px;
+    margin: 10px 0px;
     font-size: 16px;
     background-color: rgb(155, 117, 69);
+}
+
+.button-find {
+    margin-right: 10px;
 }
 
 #calendar-body td {
