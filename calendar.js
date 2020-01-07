@@ -30,11 +30,13 @@ function startup() {
     showCalendar(0, currentMonth, currentYear);
 }
 
+/* Funkcia na vykreslenie kalenára */
+
 function showCalendar(inDay, month, year) {
     let firstDay = (new Date(year, month)).getDay();
     if (firstDay === 0) { firstDay = 6 } else { firstDay = firstDay - 1; }
 
-    let daysInMonth = 32 - new Date(year, month, 32).getDate();
+    let daysInMonth = 32 - new Date(year, month, 32).getDate(); // zistenie počtu dní v mesiaci
 
     let tbl = document.getElementById("calendar-body");
 
@@ -44,6 +46,7 @@ function showCalendar(inDay, month, year) {
 
     let date = 1;
 
+    /* Vykreslenie kalendára z meniny.xml */
 
     let request = new XMLHttpRequest();
     request.open("GET", "meniny.xml", false);
@@ -52,6 +55,8 @@ function showCalendar(inDay, month, year) {
     let entryDate = xml.getElementsByTagName("den");
     let entryName = xml.getElementsByTagName("SKd");
     let firstNameIndex;
+
+    /* Hľadanie prvého dňa mesiaca v xml */
 
     for (let i = 0; i < entryDate.length; i++) {
         let mystring = entryDate[i].childNodes[0].nodeValue;
@@ -81,10 +86,10 @@ function showCalendar(inDay, month, year) {
 
                 cellText = document.createTextNode(date + "\n" + entryName[firstNameIndex].childNodes[0].nodeValue);
 
-                if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
+                if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) { // Označenie dnešného dňa
                     cell.style.backgroundColor = "rgba(174, 246, 152, 0.52)";
                 }
-                if (date == inDay) {
+                if (date == inDay) { // Označenie vyhľadávaného dňa/mena
                     cell.style.backgroundColor = "rgba(152, 224, 246, 0.52)";
                 }
                 cell.appendChild(cellText);
@@ -100,6 +105,8 @@ function showCalendar(inDay, month, year) {
     }
 }
 
+/* Prepínanie mesiacov v kalendáry */
+
 function prev() {
     currentYear = (currentMonth === 0) ? currentYear - 1 : currentYear;
     currentMonth = currentMonth === 0 ? 11 : currentMonth - 1;
@@ -111,6 +118,8 @@ function next() {
     currentMonth = (currentMonth + 1) % 12;
     showCalendar(0, currentMonth, currentYear);
 }
+
+/* Nájdenie dátumu v kalendáry */
 
 function findDate() {
     let inputDate = document.getElementById("userDate").value;
@@ -136,17 +145,21 @@ function diaConvert(text) {
     return convertText;
 }
 /* ------------------------------------------------------------------------------------------------------------------------------ */
+
+/* Vyhľadanie mena */
 function findName() {
     let inputName = document.getElementById("userName").value;
-    inputName = inputName.toLowerCase(inputName);
-    inputName = diaConvert(inputName);
+    inputName = inputName.toLowerCase(inputName); // konvertovanie na malé písmená
+    inputName = diaConvert(inputName); // konvertovanie na písmená bez diakritiky pomocou finkcie diaConvert
 
     let request = new XMLHttpRequest();
     request.open("GET", "meniny.xml", false);
     request.send();
     let xml = request.responseXML;
-    let entryDate = xml.getElementsByTagName("den");
-    let entryName = xml.getElementsByTagName("SKd");
+    let entryDate = xml.getElementsByTagName("den"); // namapovanie všetkých dní z meniny.xml
+    let entryName = xml.getElementsByTagName("SKd"); // namapovanie všetkých mien z meniny.xml
+
+    /* Hľadanie mena v kalendáry */
 
     for (let i = 0; i < entryName.length; i++) {
         let names = entryName[i].childNodes[0].nodeValue;

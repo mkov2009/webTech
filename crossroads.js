@@ -8,7 +8,7 @@ var correctOrder = [
 var count = 0;
 var vehicleAnimation = [];
 var p = 0;
-
+//načítanie náhľadov križovatiek z JSON
 function loadPreviews() {
     $.getJSON("crossroads_data.json", function(json) {
         console.log(json);
@@ -23,7 +23,7 @@ function loadPreviews() {
         }
     });
 }
-
+//odstránenie dát z križovatiek 
 function removedata() {
 
     var pathElement = document.getElementById('svg');
@@ -39,7 +39,7 @@ function removedata() {
 
 }
 
-
+//načítavanie konkrétnej križovatky z JSON
 function loaddata(k) {
 
     $.getJSON("crossroads_data.json", function(json) {
@@ -85,7 +85,7 @@ function loaddata(k) {
         init();
     });
 }
-
+//inicializačná funkcia na pridanie animácie na objekty
 function init() {
 
     var paths = document.querySelectorAll("path");
@@ -113,12 +113,13 @@ function init() {
 
 }
 
-
+//funkcia, ktorá pridá do zoznamu ID vozidla, na ktoré bolo kliknuté
 function runned(car) {
     count++;
     order.push(car);
 }
 
+//funkcia na kontrolu správnosti
 function check() {
     if (count == numberOfVehicles) {
         if (!compare()) {
@@ -130,6 +131,7 @@ function check() {
     }
 }
 
+//zobrazenie Správne, Nesprávne po kontrole
 function explHeadline(bool) {
     var headline = document.getElementById('expHeadline');
     if (bool) {
@@ -142,7 +144,7 @@ function explHeadline(bool) {
 }
 
 
-
+//Demo správneho prejdenia križovatky
 function demo() {
     setTimeout(function() {
         vehicleAnimation[correctOrder[0][p]].play();
@@ -156,7 +158,7 @@ function demo() {
 }
 
 
-
+//porovnanie zoznamu spustených áut so správnym poradím
 function compare() {
     var tmp = 0;
     for (var j = 0; j < numberOfCorrectOrders; j++) {
@@ -174,6 +176,7 @@ function compare() {
     return false;
 }
 
+//resetovacia funckia križovatky
 function reset() {
     p = 0;
     for (var i = 0; i < numberOfVehicles; i++) {
@@ -186,20 +189,15 @@ function reset() {
     document.getElementById('expHeadline').style.color = 'black';
 }
 
-
-//
-// Open the Modal
+//otvorenie križovatky
 function openModal() {
     document.getElementById("myModal").style.display = "block";
 }
-
-// Close the Modal
+//zatvorenie križovatky
 function closeModal() {
     document.getElementById("myModal").style.display = "none";
 }
 
-
-// Thumbnail image controls
 function currentSlide(n) {
     removedata();
     loaddata(n - 1);
